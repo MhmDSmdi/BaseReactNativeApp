@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Image, StyleSheet, View, Text, } from 'react-native';
 
-export default class Splash extends Component {
+class Splash extends Component {
   render() {
     return (
       <View style = {styles.mainPage}>
@@ -16,6 +16,8 @@ export default class Splash extends Component {
     );
   }
 }
+
+export default Splash;
 
 const styles = StyleSheet.create({
     mainPage : {

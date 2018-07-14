@@ -8,20 +8,24 @@
 
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import Splash from './app/component/Splash';
-import Login from './app/component/login/Login';
+import { createStackNavigator } from 'react-navigation';
+import SplashScreen from './app/component/Splash';
+import LoginScreen from './app/component/login/Login';
+import MainScreen from './app/component/main/Main';
 
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        {/* <Splash/> */}
-        <Login style = {{}}/>
-      
-      </View>
+      <AppStackNavigator/>
     );
   }
 }
+
+ const AppStackNavigator = createStackNavigator({
+   Login : LoginScreen,
+   Splash : SplashScreen,
+   Main : MainScreen,
+})
 
 const styles = StyleSheet.create({
   container: {
