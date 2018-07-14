@@ -1,11 +1,26 @@
 import React, { Component } from 'react';
 import { KeyboardAvoidingView, TouchableOpacity, TextInput, Image, Button, View, Text, StyleSheet  } from 'react-native';
 
+
 class Login extends Component {
+
+    constructor (props) {
+        super(props);
+        this.state = {
+            userName: "",
+            password: ""
+        }
+    }
+
+    static navigationOptions = {
+        header : null,
+    }
+
   render() {
+      
     return (
         <View style = {styles.container}>
-             <KeyboardAvoidingView behavior = "position"  style = {styles.container}>
+             <KeyboardAvoidingView behavior = "padding"  style = {styles.container}>
              <Image  
                 style = {styles.imgLogo} 
                 source={require('../../assets/login.png')}
@@ -13,6 +28,12 @@ class Login extends Component {
 
               <TextInput
                 style = {styles.txtInput}
+                onChangeText = {
+                (typedText) => {
+                    this.setState({userName: typedText})
+                }    
+                }
+                value = {this.state.userName}
                 placeholder = "Username or Email"
                 returnKeyType = "next"
                 placeholderTextColor = "rgba(255, 255, 255, 0.6)"
@@ -20,14 +41,24 @@ class Login extends Component {
 
               <TextInput
                 style = {styles.txtInput}
+                onChangeText = {
+                    (typedText) => {
+                        this.setState({password: typedText})
+                }    
+                }
+                value = {this.state.password}
                 placeholder = "Password"
                 returnKeyType = "go"
                 secureTextEntry
                 placeholderTextColor = "rgba(255, 255, 255, 0.6)"
                 />
 
-                <TouchableOpacity onPress = {() => this.props.navigation.navigate('Main')}>
+                <TouchableOpacity onPress = {() => this.props.navigation.navigate('Main', {
+                    user_name : this.state.userName,
+                    user_password : this.state.password
+                })}>
                     <Text style = {styles.loginOpacity}>Login</Text>
+                
                 </TouchableOpacity>
 
             </KeyboardAvoidingView>
