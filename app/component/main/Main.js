@@ -4,8 +4,8 @@ import {createBottomTabNavigator} from 'react-navigation'
 
 class Home extends Component {
   render() {
-    const userName = this.props.getParam('userName', 'Unkown');
-    const password = this.props.getParam('password', '00000000');
+    const userName = this.props.navigation.getParam('user_name', 'Unkown');
+    const password = this.props.navigation.getParam('user_password', '00000000');
     return (
       <View style = {styles.homeContainer}>
         <Text style = {styles.txtTitle}> HomePage </Text>
