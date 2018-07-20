@@ -1,8 +1,8 @@
 class Note {
-    constructor(title, note, imageUrl) {
-        this._title = title;
-        this._note = note;
-        this._imageUrl = imageUrl;
+    constructor(title = "", note = "", imageUrl = "") {
+        this.title = title;
+        this.note = note;
+        this.imageUrl = imageUrl;
     }
 }
 
