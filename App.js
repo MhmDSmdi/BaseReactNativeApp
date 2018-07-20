@@ -17,15 +17,19 @@ export default class App extends Component {
   render() {
     return (
       <AppStackNavigator/>
-      
     );
   }
 }
 
  const AppStackNavigator = createStackNavigator({
-   Login : LoginScreen,
-   Splash : SplashScreen,
-   Main : MainScreen,
+  Main : {
+    screen : MainScreen,
+    navigationOptions : {
+      header : null,
+    }},
+  Login :{screen : LoginScreen},
+   Splash :{screen : SplashScreen},
+  
 })
 
 const styles = StyleSheet.create({

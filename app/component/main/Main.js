@@ -8,6 +8,7 @@ class Home extends Component {
     const password = this.props.navigation.getParam('user_password', '00000000');
     return (
       <View style = {styles.homeContainer}>
+
         <Text style = {styles.txtTitle}> HomePage </Text>
         <Text style = {styles.txtDescription}> userName : {userName} </Text>
         <Text style = {styles.txtDescription}> password : {password} </Text>
@@ -53,8 +54,7 @@ const styles = StyleSheet.create({
 
     homeContainer : {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        
     },
     settingContainer : {
       flex: 1,
