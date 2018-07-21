@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text , ToolbarAndroid, FlatList } from 'react-native';
 import {createBottomTabNavigator} from 'react-navigation'
-import noteListData from '../../data/NoteList';
+import noteListData from '../../data/noteListData';
 // import Note from '../../data/Note'
 import NoteCardComponent from '../note_card/NoteCard';
 
