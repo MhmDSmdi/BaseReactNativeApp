@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text , ToolbarAndroid, FlatList } from 'react-native';
+import { StyleSheet, View, Text , ToolbarAndroid, FlatList , ToastAndroid} from 'react-native';
 import {createBottomTabNavigator} from 'react-navigation'
 import noteListData from '../../data/noteListData';
 // import Note from '../../data/Note'
 import NoteCardComponent from '../note_card/NoteCard';
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      deleteRowKey : null
+    }
+  }
+
+  refreshFlatList = (deleteKey) => {
+    this.setState( (prevState) => {
+      return {
+        deleteRowKey : deleteKey
+      };
+    });
+  }
   render() {
 
     const userName = this.props.navigation.getParam('user_name', 'Unkown');
@@ -19,7 +33,15 @@ class Home extends Component {
         <FlatList data = {noteListData}
           renderItem = {({item, index}) => {
               return(
-                <NoteCardComponent item={item} index={index}>
+                <NoteCardComponent 
+                  deleteCard = {() => {
+                    noteListData.splice(index, 1);
+                    ToastAndroid.show(noteListData.length + "  *", ToastAndroid.LONG);
+                    this.refreshFlatList(item.key);
+                  }} 
+                  item={item}
+                  index={index}
+                  parentFlatList = {this}>
                 </NoteCardComponent>
               );
           }} />

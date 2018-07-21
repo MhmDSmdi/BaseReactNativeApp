@@ -6,7 +6,7 @@ class NoteCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeRowKey : null
+      activeRowKey : null,
     };
   }
   render() {
@@ -26,9 +26,7 @@ class NoteCard extends Component {
               'Are yous sure you want to delete this card?',
               [
                 {text : 'No', onPress : () => {}, style : 'cancel'},
-                {text : 'Yes', onPress : () => {
-                  
-                }, style : 'default'}
+                {text : 'Yes', onPress : () => {this.props.deleteCard()}, style : 'default'}
               ],
               {cancelable : true}
             );
